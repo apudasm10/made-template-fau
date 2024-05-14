@@ -46,7 +46,6 @@ pipeline TreePipeline {
             'stadtteil' oftype FurthAllowConstrain,
             'standort' oftype text,
             'baumart_botanisch' oftype text,
-            'baumart_deutsch' oftype text,
             'id' oftype GeoAllowConstrain,
             'baumfamilie' oftype text
 		];
