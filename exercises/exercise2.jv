@@ -52,13 +52,17 @@ pipeline TreePipeline {
 	}
 
     block BauColumnDeleter oftype ColumnDeleter {
-        delete: [column D];
+        delete: [column E];
     }
 
 	// Generate the SQLITE database
 	block TreeDatabaseLoader oftype SQLiteLoader {
 		table: 'trees';
 		file: './trees.sqlite';
+	}
+    block TreeDatabaseLoader2 oftype SQLiteLoader {
+		table: 'trees';
+		file: './trees2.sqlite';
 	}
 
     constraint FurthAllow oftype AllowlistConstraint {
