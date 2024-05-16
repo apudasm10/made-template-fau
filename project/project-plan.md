@@ -38,7 +38,7 @@ The dataset provides hourly and daily rental bike counts from 2011 to 2012, alon
 
 * Data Type: Zip -> CSV
 
-The dataset provides hourly rental bike counts from 2017 to 2018, along with corresponding weather data and holiday information.  It can be used to analyze factors influencing Seoul Bike Sharing System.>
+The dataset provides hourly rental bike counts in Seoul from 2017 to 2018, along with corresponding weather data and holiday information.  It can be used to analyze factors influencing Seoul Bike Sharing System.>
 
 ## Work Packages
 
