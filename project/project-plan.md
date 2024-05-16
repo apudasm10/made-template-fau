@@ -8,7 +8,7 @@
 
 <!-- Think about one main question you want to answer based on the data. -->
 1. How do weather conditions (temperature, humidity, situation, wind speed, etc.) affect bike rentals?
-2. What is the overall trend in bike rentals over the two years (2011-2012)?
+2. What is the overall trend in bike rentals over the years?
 3. Do casual users and registered users display different rental patterns throughout the year?
 
 ## Description
