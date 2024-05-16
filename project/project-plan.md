@@ -14,7 +14,7 @@
 ## Description
 
 <!-- Describe your data science project in max. 200 words. Consider writing about why and how you attempt it. -->
-This project analyzes the factors influencing Capital Bikeshare rentals between 2011 and 2012. By exploring the impact of weather (temperature, humidity, wind speed, etc.) and seasonality, we will try to find trends and patterns in bike rental numbers. Based on these factors, the goal is to develop a predictive model that predicts daily or hourly bike rental demand. Thus, this analysis will provide valuable and practical insights for optimizing eco-friendly mobility in the city, ensuring enough bikes are available when riders need them most.
+This project analyzes the factors influencing Bike share rentals. By exploring the impact of weather (temperature, humidity, wind speed, etc.) and seasonality, we will try to find trends and patterns in bike rental numbers. Based on these factors, the goal is to develop a predictive model that predicts daily or hourly bike rental demand. Thus, this analysis will provide valuable and practical insights for optimizing eco-friendly mobility in the city, ensuring enough bikes are available when riders need them most.
 
 ## Datasources
 
@@ -29,6 +29,16 @@ This project analyzes the factors influencing Capital Bikeshare rentals between 
 * Data Type: Zip -> CSV
 
 The dataset provides hourly and daily rental bike counts from 2011 to 2012, along with corresponding weather and seasonal data.  It can be used to analyze factors influencing Capital bikeshare rentals.
+
+### Datasource2: Seoul Bike Sharing Demand
+
+* Metadata URL: <https://archive.ics.uci.edu/dataset/560/seoul+bike+sharing+demand>
+
+* Data URL: <https://archive.ics.uci.edu/static/public/560/seoul+bike+sharing+demand.zip>
+
+* Data Type: Zip -> CSV
+
+The dataset provides hourly rental bike counts from 2017 to 2018, along with corresponding weather data and holiday information.  It can be used to analyze factors influencing Seoul Bike Sharing System.>
 
 ## Work Packages
 
