@@ -41,7 +41,7 @@ class Pipeline:
             
             # Extract the CSV file from the zip
             with ZipFile(filename, 'r') as zip_ref:
-                csv_filename = zip_ref.namelist()[2]  # Get the file with daily data
+                csv_filename = zip_ref.namelist()[2]  # Get the file with hourly data
                 zip_ref.extract(csv_filename)  # Extract the first file
                 self.files_to_delete.append(csv_filename)
             
@@ -73,6 +73,6 @@ class Pipeline:
 
 
 
-print("==========================================================================================")
-pipe = Pipeline("https://archive.ics.uci.edu/static/public/275/bike+sharing+dataset.zip", "bike_data")
-pipe.run_pipeline()
+if __name__ == '__main__':
+    pipe = Pipeline("https://archive.ics.uci.edu/static/public/275/bike+sharing+dataset.zip", "bike_data")
+    pipe.run_pipeline()
