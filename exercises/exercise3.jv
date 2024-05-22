@@ -1,0 +1,21 @@
+// Build an automated data pipeline for the following source:
+//     https://mobilithek.info/offers/-94981960701408443
+//     direct link to CSV: https://www-genesis.destatis.de/genesis/downloads/00/tables/46131-0014_00.csv
+// Goal
+//     Remove metadata rows (initial description and headers [data starts in row 9], copyright notice in the footer)
+//     Ensure German umlauts are saved correctly
+//     Select only a subset of columns
+//         Data about time and transported goods: Column A-E
+//         Data about quantity: Column AT-AU
+//     Add header names for the first columns A-E
+//         New names: 'year', 'month', 'goods_id', 'goods_name', 'goods_source'
+//     Rename headers for the quantity columns AT-AU
+//         New names: 'abroad', 'total'
+//     Choose suitable value types for all columns
+//         Numeric values must be positive integers
+//         'month' must be a German month, capitalized
+//         'goods_id' must start with NST7-, followed by three numbers or capital letters
+//     Drop rows with missing or invalid values
+//     Assign fitting built-in SQLite types (e.g., BIGINT, TEXT or FLOAT) to all columns
+//     Write data into a SQLite database called “goodsTransportedByTrain.sqlite”, in the table “goods”
+
