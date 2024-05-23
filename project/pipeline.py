@@ -58,7 +58,7 @@ class Pipeline:
     def transform_data(self):
         self.data.drop(self.data.columns[0], axis=1, inplace=True) # Deleting instant as it is just an index
         self.data.dropna(thresh=3) # Deleting a row if it has more 3 or more NA values
-        self.data.bfill() # Filling the remaining NA values backward (Imputation)
+        # self.data.bfill() # Filling the remaining NA values backward (Imputation)
 
     def save_data(self):
         self.data.to_sql(self.save_file_name, self.engine, if_exists='replace', index=False)
