@@ -7,14 +7,12 @@
 ## Main Question
 
 <!-- Think about one main question you want to answer based on the data. -->
-1. How do weather conditions (temperature, humidity, situation, wind speed, etc.) affect bike rentals?
-2. What is the overall trend in bike rentals over the years?
-3. Do casual users and registered users display different rental patterns throughout the year?
+1. How do climate change (temperature, humidity, and wind speed) affect bike rentals?
 
 ## Description
 
 <!-- Describe your data science project in max. 200 words. Consider writing about why and how you attempt it. -->
-This project analyzes the factors influencing Bike share rentals. By exploring the impact of weather (temperature, humidity, wind speed, etc.) and seasonality, we will try to find trends and patterns in bike rental numbers. Based on these factors, the goal is to develop a predictive model that predicts daily or hourly bike rental demand. Thus, this analysis will provide valuable and practical insights for optimizing eco-friendly mobility in the city, ensuring enough bikes are available when riders need them most.
+Urban bike-sharing systems have emerged as a popular and eco-friendly mode of transportation in many cities, playing a significant role in mitigating climate change by reducing reliance on fossil fuels and lowering carbon emissions. The Capital Bikeshare and Seoul Bike Sharing systems are perfect examples of this trend. Understanding the factors that impact bike share rentals is crucial for optimizing efficiency and ensuring rider demand. This study analyzes the factors influencing bike share rentals using data from two different datasets from two countries. By exploring the impact of weather (temperature, humidity, and wind speed), we will try to find trends and patterns in bike rental numbers. Based on these factors, the goal is to develop a predictive model that predicts daily or hourly bike rental demand. Thus, this analysis will provide valuable and practical insights for optimizing eco-friendly mobility in the city. It will also ensure sufficient bike availability and contribute to the fight against climate change by promoting sustainable transportation alternatives.
 
 ## Datasources
 
