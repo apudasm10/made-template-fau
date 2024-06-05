@@ -19,3 +19,86 @@
 //     Assign fitting built-in SQLite types (e.g., BIGINT, TEXT or FLOAT) to all columns
 //     Write data into a SQLite database called “goodsTransportedByTrain.sqlite”, in the table “goods”
 
+pipeline goodsPipeline {
+    // dataFetcher -> dataProcessor;
+
+    goodsExtractor
+        -> goodsTextFileInterpreter
+        -> goodsCSVInterpreter
+        // -> csvProcessor 
+        -> metaDataCleaner
+        -> headerWriter1
+        -> headerWriter2
+        -> tableProcessor
+        -> dataSaver;
+
+
+    block goodsExtractor oftype HttpExtractor {
+		url: "https://www-genesis.destatis.de/genesis/downloads/00/tables/46131-0014_00.csv";
+	}
+	// Text Interpreter
+	block goodsTextFileInterpreter oftype TextFileInterpreter {encoding: "latin3";}
+
+	// CSV Interpreter
+	block goodsCSVInterpreter oftype CSVInterpreter {
+		delimiter: ";";
+        enclosing: '';
+	}
+
+    block metaDataCleaner oftype RowDeleter {
+        delete: [row 1, row 2, row 3, row 4, row 5, row 6, row 7, row 41337, row 41338, row 41339];
+    }
+
+    block headerWriter1 oftype CellWriter {
+        at: range A1:E1;
+        write: ["year", "month", "goods_id", "goods_name", "goods_source"];
+    }
+
+    block headerWriter2 oftype CellWriter {
+        at: range AT1:AU1;
+        write: ["international", "total"];
+    }
+
+    constraint MonthRegex oftype RegexConstraint {
+        regex: /\b(Januar|Februar|März|April|Mai|Juni|Juli|August|September|Oktober|November|Dezember)\b/;
+    }
+
+    constraint IdRegex oftype RegexConstraint {
+        regex: /^NST7-[0-9A-Z]{3}$/;
+    }
+
+    constraint NonNegative oftype RangeConstraint {
+        lowerBound: 0;
+        lowerBoundInclusive: true;
+    }
+
+    valuetype MonthType oftype text {
+        constraints: [MonthRegex,];
+    }
+
+    valuetype PositiveInteger oftype integer {
+        constraints: [NonNegative,];
+    }
+
+    valuetype ItemIdType oftype text {
+        constraints: [IdRegex,];
+    }
+
+    block tableProcessor oftype TableInterpreter {
+        header: true;
+        columns: [
+            "year" oftype PositiveInteger,
+            "month" oftype MonthType,
+            "item_id" oftype ItemIdType,
+            "item_name" oftype text,
+            "item_source" oftype text,
+            "international" oftype PositiveInteger,
+            "total" oftype PositiveInteger
+        ];
+    }
+
+    block dataSaver oftype SQLiteLoader {
+        table: "goods";
+        file: "./goodsTransportedByTrain.sqlite";
+    }
+}
