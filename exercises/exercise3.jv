@@ -56,7 +56,7 @@ pipeline goodsPipeline {
 
     block headerWriter2 oftype CellWriter {
         at: range AT1:AU1;
-        write: ["international", "total"];
+        write: ["abroad", "total"];
     }
 
     constraint MonthRegex oftype RegexConstraint {
