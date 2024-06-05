@@ -92,7 +92,7 @@ pipeline goodsPipeline {
             "item_id" oftype ItemIdType,
             "item_name" oftype text,
             "item_source" oftype text,
-            "international" oftype PositiveInteger,
+            "abroad" oftype PositiveInteger,
             "total" oftype PositiveInteger
         ];
     }
