@@ -2,12 +2,12 @@
 
 ## Title
 <!-- Give your project a short title. -->
-### Capital Bikeshare: Rain or Shine, We'll Predict Your Ride
+### Climate Impact on Urban Mobility: Analyzing Bike-Sharing Demand
 
 ## Main Question
 
 <!-- Think about one main question you want to answer based on the data. -->
-1. How do climate change (temperature, humidity, and wind speed) affect bike rentals?
+1. How does climate change (temperature, humidity, and wind speed) affect bike rentals?
 
 ## Description
 
@@ -42,8 +42,9 @@ The dataset provides hourly rental bike counts in Seoul from 2017 to 2018, along
 
 <!-- List of work packages ordered sequentially, each pointing to an issue with more details. -->
 
-1. Data collection and Pre-processing
-2. Exploratory Data Analysis (EDA) and Feature Engineering
-3. Statistical Modeling and Hyperparameter Tuning
-4. Model Evaluation: preformance, interpretation, and insights
-5. Reporting on findings
+1. Dataset selection
+2. Building an automated data pipeline
+3. Exploratory Data Analysis (EDA) and Feature Engineering
+4. Statistical Modeling and Hyperparameter Tuning
+5. Model Evaluation: preformance, interpretation, and insights
+6. Reporting on findings

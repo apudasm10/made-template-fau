@@ -34,20 +34,21 @@ class Pipeline:
         self.files_to_delete.extend(items_to_delete1)
         self.files_to_delete.extend(items_to_delete2)
 
-        for pa in self.files_to_delete:  # Removing downloaded and extracted data
-            os.remove(pa)
 
     def transform_data(self):
         self.data1.drop(self.data1.columns[0], axis=1, inplace=True)  # Deleting instant as it is just an index
         self.data1.dropna(thresh=3)  # Deleting a row if it has more 3 or more NA values
         self.data1.bfill()  # Filling the remaining NA values backward (Imputation)
-
+        
         self.data2.dropna(thresh=3)  # Deleting a row if it has more 3 or more NA values
         self.data2.bfill()  # Filling the remaining NA values backward (Imputation)
 
     def save_data(self):
         self.data1.to_sql("Capital Bikeshare", self.engine, if_exists='replace', index=False)  # saving Capital Bikeshare data
         self.data2.to_sql("Seoul Bikeshare", self.engine, if_exists='replace', index=False)  # saving Seoul Bikeshare data
+
+        for pa in self.files_to_delete:  # Removing downloaded and extracted data
+            os.remove(pa)
 
     def run_pipeline(self):
         self.get_data()
