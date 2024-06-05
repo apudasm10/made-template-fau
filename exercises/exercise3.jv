@@ -89,9 +89,9 @@ pipeline goodsPipeline {
         columns: [
             "year" oftype PositiveInteger,
             "month" oftype MonthType,
-            "item_id" oftype ItemIdType,
-            "item_name" oftype text,
-            "item_source" oftype text,
+            "goods_id" oftype ItemIdType,
+            "goods_name" oftype text,
+            "goods_source" oftype text,
             "abroad" oftype PositiveInteger,
             "total" oftype PositiveInteger
         ];
