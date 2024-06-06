@@ -20,12 +20,10 @@
 //     Write data into a SQLite database called “goodsTransportedByTrain.sqlite”, in the table “goods”
 
 pipeline goodsPipeline {
-    // dataFetcher -> dataProcessor;
 
     goodsExtractor
         -> goodsTextFileInterpreter
         -> goodsCSVInterpreter
-        // -> csvProcessor 
         -> metaDataCleaner
         -> headerWriter1
         -> headerWriter2
