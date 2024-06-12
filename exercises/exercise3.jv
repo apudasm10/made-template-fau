@@ -57,11 +57,6 @@ pipeline goodsPipeline {
         write: ["abroad", "total"];
     }
 
-    // constraint onlyPositive oftype RangeConstraint {
-    //     lowerBound: 0;
-    //     lowerBoundInclusive: true;
-    // }
-
     constraint onlyPositive on integer:
         value >= 0;
 
