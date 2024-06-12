@@ -24,11 +24,11 @@ pipeline goodsPipeline {
     goodsExtractor
         -> goodsTextFileInterpreter
         -> goodsCSVInterpreter
-        -> metaDataCleaner
-        -> headerWriter1
-        -> headerWriter2
+        -> metaRemover
+        -> headerNames1
+        -> headerNames2
         -> tableProcessor
-        -> dataSaver;
+        -> goodsDatabaseLoader;
 
 
     block goodsExtractor oftype HttpExtractor {
@@ -43,43 +43,52 @@ pipeline goodsPipeline {
         enclosing: '';
 	}
 
-    block metaDataCleaner oftype RowDeleter {
+    block metaRemover oftype RowDeleter {
         delete: [row 1, row 2, row 3, row 4, row 5, row 6, row 7, row 41337, row 41338, row 41339];
     }
 
-    block headerWriter1 oftype CellWriter {
+    block headerNames1 oftype CellWriter {
         at: range A1:E1;
         write: ["year", "month", "goods_id", "goods_name", "goods_source"];
     }
 
-    block headerWriter2 oftype CellWriter {
+    block headerNames2 oftype CellWriter {
         at: range AT1:AU1;
         write: ["abroad", "total"];
+    }
+
+    // constraint onlyPositive oftype RangeConstraint {
+    //     lowerBound: 0;
+    //     lowerBoundInclusive: true;
+    // }
+
+    constraint onlyPositive on integer:
+        value >= 0;
+
+    valuetype PositiveInteger oftype integer {
+        constraints: [
+            onlyPositive,
+        ];
     }
 
     constraint MonthRegex oftype RegexConstraint {
         regex: /\b(Januar|Februar|März|April|Mai|Juni|Juli|August|September|Oktober|November|Dezember)\b/;
     }
 
-    constraint IdRegex oftype RegexConstraint {
+    valuetype MonthType oftype text {
+        constraints: [
+            MonthRegex,
+        ];
+    }
+
+    constraint goods_idRegex oftype RegexConstraint {
         regex: /^NST7-[0-9A-Z]{3}$/;
     }
 
-    constraint NonNegative oftype RangeConstraint {
-        lowerBound: 0;
-        lowerBoundInclusive: true;
-    }
-
-    valuetype MonthType oftype text {
-        constraints: [MonthRegex,];
-    }
-
-    valuetype PositiveInteger oftype integer {
-        constraints: [NonNegative,];
-    }
-
     valuetype ItemIdType oftype text {
-        constraints: [IdRegex,];
+        constraints: [
+            goods_idRegex,
+        ];
     }
 
     block tableProcessor oftype TableInterpreter {
@@ -95,7 +104,7 @@ pipeline goodsPipeline {
         ];
     }
 
-    block dataSaver oftype SQLiteLoader {
+    block goodsDatabaseLoader oftype SQLiteLoader {
         table: "goods";
         file: "./goodsTransportedByTrain.sqlite";
     }

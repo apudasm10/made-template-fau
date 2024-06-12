@@ -36,8 +36,8 @@ pipeline temperaturePipeline {
         -> headerRename
         -> batteryHeaderRename
         -> tempTableInterpretor
-        -> temperatureToFahrenheit
-        -> batteryTemperatureToFahrenheit
+        -> tempToFahrenheit
+        -> batteryTempToFahrenheit
         -> tempLoader;
 
     block tempExtractor oftype HttpExtractor {
@@ -88,13 +88,13 @@ pipeline temperaturePipeline {
         Fahrenheit: (Celsius * 9/5) + 32;
     }
 
-    block temperatureToFahrenheit oftype TableTransformer {
+    block tempToFahrenheit oftype TableTransformer {
         inputColumns: ['temperature'];
         outputColumn: 'temperature';
         use: CtoF;
     }
 
-    block batteryTemperatureToFahrenheit oftype TableTransformer {
+    block batteryTempToFahrenheit oftype TableTransformer {
         inputColumns: ['battery_temperature'];
         outputColumn: 'battery_temperature';
         use: CtoF;
@@ -105,11 +105,11 @@ pipeline temperaturePipeline {
         file:'temperatures.sqlite';
     }
 
-    constraint PositiveIntegerConstraint on integer:
-        value >= 1;
+    constraint PositiveConstraint on integer:
+        value >= 0;
 
     valuetype PostiveInteger oftype integer {
-        constraints: [PositiveIntegerConstraint];
+        constraints: [PositiveConstraint];
     }
 
     constraint MonthConstraint on integer:
