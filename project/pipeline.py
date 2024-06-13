@@ -49,6 +49,8 @@ class Pipeline:
 
         for pa in self.files_to_delete:  # Removing downloaded and extracted data
             os.remove(pa)
+        
+        self.engine.dispose()
 
     def run_pipeline(self):
         self.get_data()
