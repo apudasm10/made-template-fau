@@ -37,7 +37,7 @@ class Pipeline:
 
     def transform_data(self):
         self.data1.drop(self.data1.columns[0], axis=1, inplace=True)  # Deleting instant as it is just an index
-        self.data1.dropna(thresh=3)  # Deleting a row if it has more 3 or more NA values
+        self.data1.dropna(thresh=3)  # Deleting a row if it has 3 or more NA values
         self.data1.bfill()  # Filling the remaining NA values backward (Imputation)
         
         self.data2.dropna(thresh=3)  # Deleting a row if it has more 3 or more NA values
