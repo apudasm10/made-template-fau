@@ -41,9 +41,7 @@ pipeline GTFSPipeline {
     }
 
 	// Text Interpreter
-	block GTFSTextFileInterpreter oftype TextFileInterpreter {
-        encoding: "latin3";
-    }
+	block GTFSTextFileInterpreter oftype TextFileInterpreter {}
 
 	// CSV Interpreter
 	block GTFSCSVInterpreter oftype CSVInterpreter {
