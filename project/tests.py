@@ -1,4 +1,4 @@
-import os, requests, unittest, sqlalchemy, time
+import os, requests, unittest, sqlalchemy
 import pandas as pd
 from pipeline import Pipeline
 
