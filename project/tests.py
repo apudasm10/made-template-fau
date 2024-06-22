@@ -13,12 +13,14 @@ class PipelineUnitTest(unittest.TestCase):
         self.connection = self.engine.connect()
 
     def testDownload(self):
+        print("Testing Download Access")
         response1 = requests.get(self.url1)
         self.assertTrue(response1.status_code == 200, msg=f'{self.url1} not accessible.')
         response2 = requests.get(self.url2)
         self.assertTrue(response2.status_code == 200, msg=f'{self.url2} not accessible.')
 
     def testTableExist(self):
+        print("Testing if the Tables Exist in DB")
         if not os.path.exists(self.db_path):
             self.fail(f"Database file '{self.db_path}' does not exist.")
 
@@ -36,6 +38,7 @@ class PipelineUnitTest(unittest.TestCase):
             self.connection.close()
 
     def testNA(self):
+        print("Testing NA values are maintained")
         if not os.path.exists(self.db_path):
             self.fail(f"Database file '{self.db_path}' does not exist.")
 
@@ -54,6 +57,7 @@ class PipelineUnitTest(unittest.TestCase):
             self.connection.close()
 
     def testValueRange(self):
+        print("Testing if the Values are in the Range")
         if not os.path.exists(self.db_path):
             self.fail(f"Database file '{self.db_path}' does not exist.")
 
@@ -83,6 +87,7 @@ class PipelineUnitTest(unittest.TestCase):
             self.connection.close()
 
     def testCreateDatabase(self):
+        print("Testing if Pipeline cane create the DB")
         temp_db_path = os.path.join(os.path.dirname(__file__), '..', 'data', 'temp_data.sqlite')
         if os.path.exists(temp_db_path):
             os.remove(temp_db_path)
@@ -93,6 +98,7 @@ class PipelineUnitTest(unittest.TestCase):
         self.assertTrue(os.path.exists(temp_db_path), f"Database was not created by the pipeline.")
 
     def testDatabaseExist(self):
+        print("Testing if Database exists.")
         pipeline = Pipeline(self.url1, self.url2, "bike_data")
         pipeline.run_pipeline()
 
