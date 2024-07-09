@@ -2,7 +2,58 @@
 
 ![](https://byob.yarr.is/apudasm10/made-template-fau/score_ex1) ![](https://byob.yarr.is/apudasm10/made-template-fau/score_ex2) ![](https://byob.yarr.is/apudasm10/made-template-fau/score_ex3) ![](https://byob.yarr.is/apudasm10/made-template-fau/score_ex4) ![](https://byob.yarr.is/apudasm10/made-template-fau/score_ex5)
 
-# Methods of Advanced Data Engineering Template Project
+# Climate Impact on Urban Mobility: Analyzing Bike-Sharing Demand
+
+Urban bike-sharing systems have emerged as a popular and eco-friendly mode of transportation in many cities, significantly mitigating climate change by reducing dependency on fossil fuels and lowering carbon emissions. The Capital Bikeshare and Seoul Bike Sharing systems are perfect examples of this trend. Understanding the factors that impact bike share rentals is crucial for optimizing efficiency and ensuring rider demand. This study analyzes the factors influencing bike share rentals using data from two different datasets from two countries. By exploring the impact of weather (temperature, humidity, and wind speed), we will try to find trends and patterns in bike rental demand. Thus, this analysis will provide valuable and practical insights into the question, "How does climate change (temperature, humidity, and wind speed) affect bike rentals?". It will also ensure sufficient bike availability and contribute to the fight against climate change by promoting sustainable transportation alternatives.
+
+## Question
+
+How does climate change (temperature, humidity, and wind speed) affect bike rentals?
+
+## Datasources
+
+<!-- Describe each datasources you plan to use in a section. Use the prefic "DatasourceX" where X is the id of the datasource. -->
+
+### Datasource1: Bike Sharing
+
+* Metadata URL: <https://archive.ics.uci.edu/dataset/275/bike+sharing+dataset>
+
+* Data URL: <https://archive.ics.uci.edu/static/public/275/bike+sharing+dataset.zip>
+
+* Data Type: Zip -> CSV
+
+The dataset provides hourly and daily rental bike counts from 2011 to 2012, along with corresponding weather and seasonal data.  It can be used to analyze factors influencing Capital bikeshare rentals.
+
+### Datasource2: Seoul Bike Sharing Demand
+
+* Metadata URL: <https://archive.ics.uci.edu/dataset/560/seoul+bike+sharing+demand>
+
+* Data URL: <https://archive.ics.uci.edu/static/public/560/seoul+bike+sharing+demand.zip>
+
+* Data Type: Zip -> CSV
+
+The dataset provides hourly rental bike counts in Seoul from 2017 to 2018, along with corresponding weather data and holiday information.  It can be used to analyze factors influencing Seoul Bike Sharing System.
+
+## Work Packages
+
+<!-- List of work packages ordered sequentially, each pointing to an issue with more details. -->
+
+1. Dataset selection
+2. Building an Automated Data Pipelines
+3. Automated Testing
+4. Continuous Integration
+5. Feature Engineering and Analysis
+6. Reporting on findings
+7. Presentation
+
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+___
+___
+___
+
 
 This template project provides some structure for your open data project in the MADE module at FAU.
 This repository contains (a) a data science project that is developed by the student over the course of the semester, and (b) the exercises that are submitted over the course of the semester.
